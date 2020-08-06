@@ -1,0 +1,132 @@
+apiVersion: v1
+items:
+- apiVersion: extensions/v1beta1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2020-08-01T07:24:52Z"
+    generation: 1
+    labels:
+      app: grafana
+    name: grafana
+    namespace: default
+    resourceVersion: "2174"
+    selfLink: /apis/extensions/v1beta1/namespaces/default/deployments/grafana
+    uid: 6d4c1975-7ed2-4116-af5e-1b895f8c01c8
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: grafana
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: grafana
+      spec:
+        containers:
+        - image: docker.io/grafana/grafana
+          imagePullPolicy: Always
+          name: grafana
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2020-08-01T07:25:00Z"
+      lastUpdateTime: "2020-08-01T07:25:00Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2020-08-01T07:24:52Z"
+      lastUpdateTime: "2020-08-01T07:25:00Z"
+      message: ReplicaSet "grafana-69764ff749" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: extensions/v1beta1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2020-08-01T07:23:00Z"
+    generation: 1
+    labels:
+      app: influxdb
+    name: influxdb
+    namespace: default
+    resourceVersion: "1715"
+    selfLink: /apis/extensions/v1beta1/namespaces/default/deployments/influxdb
+    uid: c0b5b4ea-75c0-4ffb-8525-d58b2cff60cc
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: influxdb
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: influxdb
+      spec:
+        containers:
+        - image: docker.io/influxdb
+          imagePullPolicy: Always
+          name: influxdb
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2020-08-01T07:23:12Z"
+      lastUpdateTime: "2020-08-01T07:23:12Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2020-08-01T07:23:00Z"
+      lastUpdateTime: "2020-08-01T07:23:12Z"
+      message: ReplicaSet "influxdb-6fcd45957b" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
